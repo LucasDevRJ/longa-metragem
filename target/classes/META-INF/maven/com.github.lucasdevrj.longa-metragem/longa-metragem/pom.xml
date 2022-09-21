@@ -19,4 +19,13 @@
         </plugin>
     </plugins>
 </build>
+
+<!-- Adicionar Hibernate como implementação e o JPA como especificação-->
+<dependencies>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>5.4.27.Final</version>
+	</dependency>
+</dependencies>
 </project>
