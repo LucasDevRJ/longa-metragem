@@ -1,31 +1,39 @@
 <!-- Arquivo de configuração de dependências-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <!-- Configurações do projeto padrão-->
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.lucasdevrj.longa-metragem</groupId>
-  <artifactId>longa-metragem</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  <!-- Plugin para mudar a versão do Java para a 11-->
-  <build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.0</version>
-            <configuration>
-                <release>11</release>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
+	<!-- Configurações do projeto padrão-->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.lucasdevrj.longa-metragem</groupId>
+	<artifactId>longa-metragem</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
-<!-- Adicionar Hibernate como implementação e o JPA como especificação-->
-<dependencies>
-	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-entitymanager</artifactId>
-		<version>5.4.27.Final</version>
-	</dependency>
-</dependencies>
+	<!-- Plugin para mudar a versão do Java para a 11-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<release>11</release>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Adicionar Hibernate como implementação e o JPA como especificação-->
+	<dependencies>
+		<!-- Dependência Hibernate-->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.4.27.Final</version>
+		</dependency>
+
+		<!-- Dependência do Driver do banco de dados-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.18</version>
+		</dependency>
+	</dependencies>
 </project>
