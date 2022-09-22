@@ -13,7 +13,7 @@
 		    
 		    <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 		    <property name="hibernate.show_sql" value="true"/> <!-- Para podermos ver os inserts do banco -->
-		    <property name="hibernate.hbm2ddl.auto" value=""/> <!-- Para criar a tabela, caso ela não exista -->
+		    <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- Para criar a tabela, caso ela não exista -->
 		</properties>
 	</persistence-unit>
 </persistence>
