@@ -18,10 +18,12 @@ public class Filme {
 	private int id;
 	private String nome;
 	private int faixa;
-	private Categoria categoria;
+	private String categoria;
 	private String sinopse;
 	private Year ano;
 	private Time duracao;
+	private String elenco;
+	private String direcao;
 	
 	public int getId() {
 		return id;
@@ -47,11 +49,11 @@ public class Filme {
 		this.faixa = faixa;
 	}
 	
-	public Categoria getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
 	
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 	
@@ -77,5 +79,21 @@ public class Filme {
 	
 	public void setDuracao(Time duracao) {
 		this.duracao = duracao;
+	}
+	
+	public String getElenco() {
+		return elenco;
+	}
+	
+	public void setElenco(String elenco) {
+		this.elenco = elenco;
+	}
+	
+	public String getDirecao() {
+		return direcao;
+	}
+	
+	public void setDirecao(String direcao) {
+		this.direcao = direcao;
 	}
 }
