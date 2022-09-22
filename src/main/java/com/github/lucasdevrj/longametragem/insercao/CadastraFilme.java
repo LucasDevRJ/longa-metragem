@@ -7,7 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import com.github.lucasdevrj.longametragem.dao.FilmeDao;
 import com.github.lucasdevrj.longametragem.modelo.Filme;
+import com.github.lucasdevrj.longametragem.util.JPAUtil;
 
 public class CadastraFilme {
 
@@ -22,13 +24,13 @@ public class CadastraFilme {
 		filme.setElenco("Keanu Reeves, Common, Laurance Fishburne");
 		filme.setDirecao("Chad Stahelski");
 		
-		//Classe que tem o método para construir o EntityManager
-		EntityManagerFactory construtor = Persistence.createEntityManagerFactory("longa-metragem");
+		//Gerenciador da tabela do banco
+		EntityManager gerenciador = JPAUtil.getGerenciador();
 		
-		//Interface que faz a ponte entre o banco e o Java
-		EntityManager gerenciador = construtor.createEntityManager();
+		FilmeDao filmeDao = new FilmeDao(gerenciador);
+		
 		gerenciador.getTransaction().begin(); //iniciar a transação
-		gerenciador.persist(filme); //inserir registro no banco de dados
+		filmeDao.cadastrar(filme); //chamada do método para inserir registro no banco de dados
 		gerenciador.getTransaction().commit(); //commitar/salvar o registro
 		gerenciador.close(); //fechar o Entity Manager
 	}
