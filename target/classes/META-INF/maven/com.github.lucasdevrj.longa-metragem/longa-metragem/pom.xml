@@ -31,9 +31,9 @@
 
 		<!-- Dependência do Driver do banco de dados-->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.18</version>
+    		<groupId>com.h2database</groupId>
+    		<artifactId>h2</artifactId>
+    		<version>1.4.200</version>
 		</dependency>
 	</dependencies>
 </project>

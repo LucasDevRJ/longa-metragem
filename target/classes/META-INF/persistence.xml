@@ -6,11 +6,12 @@
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 	<persistence-unit name="longa-metragem" transaction-type="RESOURCE_LOCAL">
 		<properties>
-		    <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/longa-metragem" />
-		    <property name="javax.persistence.jdbc.user" value="root" />
-		    <property name="javax.persistence.jdbc.password" value="root" />
-		    <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+		    <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+		    <property name="javax.persistence.jdbc.url" value="h2:mem:longa-metragem"/>
+		    <property name="javax.persistence.jdbc.username" value="sa"/>
+		    <property name="javax.persistence.jdbc.password" value=""/>
+		    
+		    <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 		</properties>
 	</persistence-unit>
 </persistence>
