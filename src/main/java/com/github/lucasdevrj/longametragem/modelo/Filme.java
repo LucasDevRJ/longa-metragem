@@ -18,7 +18,7 @@ public class Filme {
 	private int id;
 	private String nome;
 	private int faixa;
-	private String categoria;
+	private Categoria categoria;
 	private String sinopse;
 	private Year ano;
 	private Time duracao;
@@ -49,11 +49,11 @@ public class Filme {
 		this.faixa = faixa;
 	}
 	
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 	
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 	

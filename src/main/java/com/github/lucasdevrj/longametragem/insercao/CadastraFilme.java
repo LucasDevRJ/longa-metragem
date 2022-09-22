@@ -4,9 +4,6 @@ import java.sql.Time;
 import java.time.Year;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import com.github.lucasdevrj.longametragem.dao.FilmeDao;
 import com.github.lucasdevrj.longametragem.modelo.Filme;
 import com.github.lucasdevrj.longametragem.util.JPAUtil;
