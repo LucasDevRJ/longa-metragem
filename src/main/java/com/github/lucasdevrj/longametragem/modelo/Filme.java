@@ -1,4 +1,4 @@
-package com.github.lucasdevrj.longametragem;
+package com.github.lucasdevrj.longametragem.modelo;
 
 import java.sql.Time;
 import java.time.Year;
