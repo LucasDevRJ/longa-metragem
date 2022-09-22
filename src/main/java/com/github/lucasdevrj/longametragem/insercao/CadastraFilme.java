@@ -12,7 +12,8 @@ import com.github.lucasdevrj.longametragem.util.JPAUtil;
 public class CadastraFilme {
 
 	public static void main(String[] args) {
-		Filme filme = new Filme("John Wick 2", 16, Categoria.ACAO, "Forçado a honrar uma dívida da sua vida passada, John Wick assassina um alvo que não desejava matar, depois é traído pelo mandante do crime.", Year.parse("2017"), Time.valueOf("02:02:00"), "Keanu Reeves, Common, Laurance Fishburne", "Chad Stahelski");
+		Filme filme = new Filme("John Wick 2", 16, "Forçado a honrar uma dívida da sua vida passada, John Wick assassina um alvo que não desejava matar, depois é traído pelo mandante do crime.", Year.parse("2017"), Time.valueOf("02:02:00"), "Keanu Reeves, Common, Laurance Fishburne", "Chad Stahelski");
+		Categoria categoria = new Categoria("Ação", filme);
 		
 		//Gerenciador da tabela do banco
 		EntityManager gerenciador = JPAUtil.getGerenciador();
