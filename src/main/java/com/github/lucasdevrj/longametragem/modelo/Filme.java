@@ -4,6 +4,8 @@ import java.sql.Time;
 import java.time.Year;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +20,7 @@ public class Filme {
 	private int id;
 	private String nome;
 	private int faixa;
+	@Enumerated(EnumType.STRING) //indica ao JPA que é do tipo enumerador
 	private Categoria categoria;
 	private String sinopse;
 	private Year ano;
@@ -25,6 +28,21 @@ public class Filme {
 	private String elenco;
 	private String direcao;
 	
+	public Filme(String nome, int faixa, Categoria categoria, String sinopse, Year ano, Time duracao, String elenco,String direcao) {
+		this.nome = nome;
+		this.faixa = faixa;
+		this.categoria = categoria;
+		this.sinopse = sinopse;
+		this.ano = ano;
+		this.duracao = duracao;
+		this.elenco = elenco;
+		this.direcao = direcao;
+	}
+	
+	public Filme() {
+		
+	}
+
 	public int getId() {
 		return id;
 	}
