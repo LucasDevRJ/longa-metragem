@@ -4,6 +4,8 @@ import java.sql.Time;
 import java.time.Year;
 
 import javax.persistence.EntityManager;
+
+import com.github.lucasdevrj.longametragem.dao.CategoriaDao;
 import com.github.lucasdevrj.longametragem.dao.FilmeDao;
 import com.github.lucasdevrj.longametragem.modelo.Categoria;
 import com.github.lucasdevrj.longametragem.modelo.Filme;
@@ -19,8 +21,10 @@ public class CadastraFilme {
 		EntityManager gerenciador = JPAUtil.getGerenciador();
 		
 		FilmeDao filmeDao = new FilmeDao(gerenciador);
+		CategoriaDao categoriaDao = new CategoriaDao(gerenciador);
 		
 		gerenciador.getTransaction().begin(); //iniciar a transação
+		categoriaDao.cadastrar(categoria);
 		filmeDao.cadastrar(filme); //chamada do método para inserir registro no banco de dados
 		gerenciador.getTransaction().commit(); //commitar/salvar o registro
 		gerenciador.close(); //fechar o Entity Manager
