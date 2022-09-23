@@ -20,4 +20,8 @@ public class CategoriaDao {
 		this.gerenciador.merge(categoria); //Passa do estado Detached para Managed 
 	}
 	
+	public void remover(Categoria categoria) {
+		categoria = gerenciador.merge(categoria);
+		this.gerenciador.remove(categoria); //Remove a entidade
+	}
 }

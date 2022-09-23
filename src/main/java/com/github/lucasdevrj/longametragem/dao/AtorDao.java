@@ -19,4 +19,9 @@ public class AtorDao {
 	public void atualizar(Ator ator) {
 		this.gerenciador.merge(ator); //Passa do estado Detached para Managed 
 	}
+	
+	public void remover(Ator ator) {
+		ator = gerenciador.merge(ator);
+		this.gerenciador.remove(ator); //Remove a entidade
+	}
 }

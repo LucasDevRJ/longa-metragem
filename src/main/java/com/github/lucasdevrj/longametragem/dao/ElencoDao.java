@@ -19,4 +19,9 @@ public class ElencoDao {
 	public void atualizar(Elenco elenco) {
 		this.gerenciador.merge(elenco); //Passa do estado Detached para Managed 
 	}
+	
+	public void remover(Elenco elenco) {
+		elenco = gerenciador.merge(elenco);
+		this.gerenciador.remove(elenco); //Remove a entidade
+	}
 }

@@ -2,6 +2,7 @@ package com.github.lucasdevrj.longametragem.dao;
 
 import javax.persistence.EntityManager;
 
+import com.github.lucasdevrj.longametragem.modelo.Elenco;
 import com.github.lucasdevrj.longametragem.modelo.Filme;
 //Classe para fazer a ligaçãot  com o Banco de Dados
 public class FilmeDao {
@@ -18,5 +19,10 @@ public class FilmeDao {
 	
 	public void atualizar(Filme filme) {
 		this.gerenciador.merge(filme); //Passa do estado Detached para Managed 
+	}
+	
+	public void remover(Filme filme) {
+		filme = gerenciador.merge(filme);
+		this.gerenciador.remove(filme); //Remove a entidade
 	}
 }
