@@ -17,7 +17,7 @@ public class CategoriaDao {
 	}
 	
 	public void atualizar(Categoria categoria) {
-		this.gerenciador.merge(categoria);
+		this.gerenciador.merge(categoria); //Passa do estado Detached para Managed 
 	}
 	
 }

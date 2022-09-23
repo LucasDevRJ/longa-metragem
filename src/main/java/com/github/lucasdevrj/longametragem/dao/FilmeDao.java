@@ -16,4 +16,7 @@ public class FilmeDao {
 		this.gerenciador.persist(filme); //para inserir registros
 	}
 	
+	public void atualizar(Filme filme) {
+		this.gerenciador.merge(filme); //Passa do estado Detached para Managed 
+	}
 }

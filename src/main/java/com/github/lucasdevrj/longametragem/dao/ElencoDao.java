@@ -16,4 +16,7 @@ public class ElencoDao {
 		this.gerenciador.persist(elenco); //para inserir registros
 	}
 	
+	public void atualizar(Elenco elenco) {
+		this.gerenciador.merge(elenco); //Passa do estado Detached para Managed 
+	}
 }

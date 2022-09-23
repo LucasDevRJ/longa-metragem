@@ -16,4 +16,7 @@ public class AtorDao {
 		this.gerenciador.persist(ator); //para inserir registros
 	}
 	
+	public void atualizar(Ator ator) {
+		this.gerenciador.merge(ator); //Passa do estado Detached para Managed 
+	}
 }
