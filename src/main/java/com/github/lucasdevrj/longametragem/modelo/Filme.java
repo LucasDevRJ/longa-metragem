@@ -1,12 +1,14 @@
 package com.github.lucasdevrj.longametragem.modelo;
 
-import java.sql.Time;
 import java.time.Year;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity //Indica que a classe é uma entidade da JPA, ou seja, tem uma tabela no banco a representando
@@ -18,22 +20,26 @@ public class Filme {
 	private int id;
 	private String nome;
 	private int faixa;
+	@ManyToMany
+	private List<Categoria> categorias;
 	private String sinopse;
 	private Year ano;
-	private Time duracao;
-	private String elenco;
+	private int minutos;
+	@OneToOne
+	private Elenco elenco;
 	private String direcao;
 	
-	public Filme(String nome, int faixa, String sinopse, Year ano, Time duracao, String elenco,String direcao) {
+	public Filme(String nome, int faixa, List<Categoria> categorias, String sinopse, Year ano, int minutos,Elenco elenco, String direcao) {
 		this.nome = nome;
 		this.faixa = faixa;
+		this.categorias = categorias;
 		this.sinopse = sinopse;
 		this.ano = ano;
-		this.duracao = duracao;
+		this.minutos = minutos;
 		this.elenco = elenco;
 		this.direcao = direcao;
 	}
-	
+
 	public Filme() {
 		
 	}
@@ -62,6 +68,14 @@ public class Filme {
 		this.faixa = faixa;
 	}
 	
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+	
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+	
 	public String getSinopse() {
 		return sinopse;
 	}
@@ -78,19 +92,19 @@ public class Filme {
 		this.ano = ano;
 	}
 	
-	public Time getDuracao() {
-		return duracao;
+	public int getMinutos() {
+		return minutos;
 	}
 	
-	public void setDuracao(Time duracao) {
-		this.duracao = duracao;
+	public void setMinutos(int minutos) {
+		this.minutos = minutos;
 	}
 	
-	public String getElenco() {
+	public Elenco getElenco() {
 		return elenco;
 	}
 	
-	public void setElenco(String elenco) {
+	public void setElenco(Elenco elenco) {
 		this.elenco = elenco;
 	}
 	

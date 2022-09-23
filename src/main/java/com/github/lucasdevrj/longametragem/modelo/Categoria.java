@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -15,20 +16,16 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // para mostrar como o valor é gerado
 	private int id;
 	private String nome;
-	
-	@ManyToOne
-	private Filme filme;
 			
 	public Categoria() {
 		
 	}
 	
-	public Categoria(String nome, Filme filme) {
+	public Categoria(String nome) {
 		this.nome = nome;
-		this.filme = filme;
 	}
 	
-	public Filme getFilme() {
-		return filme;
+	public String getNome() {
+		return nome;
 	}
 }

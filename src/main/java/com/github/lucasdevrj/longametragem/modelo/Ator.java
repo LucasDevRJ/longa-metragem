@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity //Indica que a classe é uma entidade da JPA, ou seja, tem uma tabela no banco a representando
-@Table(name = "elenco") //Nome da tabela do banco
+@Table(name = "ator") //Nome da tabela do banco
 public class Ator {
 	
 	@Id //Para mostrar o atributo id
@@ -36,5 +36,9 @@ public class Ator {
 		this.nascimento = nascimento;
 		this.altura = altura;
 		this.nacionalidade = nacionalidade;
+	}
+	
+	public Elenco getElenco() {
+		return elenco;
 	}
 }
