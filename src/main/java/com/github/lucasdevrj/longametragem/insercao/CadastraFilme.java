@@ -7,7 +7,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import com.github.lucasdevrj.longametragem.dao.AtorDao;
 import com.github.lucasdevrj.longametragem.dao.CategoriaDao;
+import com.github.lucasdevrj.longametragem.dao.ElencoDao;
 import com.github.lucasdevrj.longametragem.dao.FilmeDao;
 import com.github.lucasdevrj.longametragem.modelo.Ator;
 import com.github.lucasdevrj.longametragem.modelo.Categoria;
@@ -43,11 +45,15 @@ public class CadastraFilme {
 		
 		FilmeDao filmeDao = new FilmeDao(gerenciador);
 		CategoriaDao categoriaDao = new CategoriaDao(gerenciador);
+		AtorDao atorDao = new AtorDao(gerenciador);
+		ElencoDao elencoDao = new ElencoDao(gerenciador);
 		
 		gerenciador.getTransaction().begin(); //iniciar a transação
 		categoriaDao.cadastrar(categoria);
 		categoriaDao.cadastrar(categoria2);
 		filmeDao.cadastrar(filme); //chamada do método para inserir registro no banco de dados
+		atorDao.cadastrar(ator);
+		elencoDao.cadastrar(elenco);
 		gerenciador.getTransaction().commit(); //commitar/salvar o registro
 		gerenciador.close(); //fechar o Entity Manager
 	}
