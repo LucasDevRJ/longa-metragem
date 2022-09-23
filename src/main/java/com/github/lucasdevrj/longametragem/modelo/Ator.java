@@ -38,6 +38,10 @@ public class Ator {
 		this.nacionalidade = nacionalidade;
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+	
 	public Elenco getElenco() {
 		return elenco;
 	}

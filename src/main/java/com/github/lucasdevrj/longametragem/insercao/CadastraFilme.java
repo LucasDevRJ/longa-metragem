@@ -39,6 +39,7 @@ public class CadastraFilme {
 		
 		System.out.println(filme.getCategorias().get(0).getNome());
 		System.out.println(filme.getCategorias().get(1).getNome());
+		System.out.println(filme.getElenco().getAtores().get(0).getNome());
 		
 		//Gerenciador da tabela do banco
 		EntityManager gerenciador = JPAUtil.getGerenciador();

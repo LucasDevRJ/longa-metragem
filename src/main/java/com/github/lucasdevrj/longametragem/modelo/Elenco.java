@@ -28,4 +28,8 @@ public class Elenco {
 	public Elenco(List<Ator> atores) {
 		this.atores = atores;
 	}
+	
+	public List<Ator> getAtores() {
+		return atores;
+	}
 }
