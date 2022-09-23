@@ -33,11 +33,20 @@ public class EstadosInsertEntidade2 {
 		Filme filme = new Filme("John Wick 2", 16, categorias,"Forçado a honrar uma dívida da sua vida passada, John Wick assassina um alvo que não desejava matar, depois é traído pelo mandante do crime.", Year.parse("2017"), 122, elenco, "Chad Stahelski");
 		
 		EntityManager gerenciador = JPAUtil.getGerenciador();
-		gerenciador.persist(filme); //Persist faz o gerenciamento pela JPA. Estado Managed.
-		filme.setNome("John Wick"); //JPA irá atualizar o valor do atributo, pois o esta gerenciando graças ao persist
-		gerenciador.getTransaction().commit(); //commitar/salvar o registro
-		gerenciador.close(); //fechar o Entity Manager
+		gerenciador.getTransaction().begin(); //começar a sincronização com o banco
+		gerenciador.persist(filme);//JPA gerenciando  a entidade
 		
-		filme.setNome("John Wick 3"); //não irá funcionar, pois o gerenciador já foi fechado
+		filme.setNome("John Wick"); //mudança no atributo
+		
+//		gerenciador.getTransaction().commit(); //salvar a mudança no banco
+		gerenciador.flush(); //sincronizar com o banco, sem commitar mudanças
+//		gerenciador.close(); //fechar o gerenciador
+		gerenciador.clear(); //remoção de todas entidades (detached)
+		
+		//para mudar o objeto para managed
+		filme = gerenciador.merge(filme); //passar do estado detached para managed, ou seja, voltar a gerenciar a JPA
+		
+		filme.setNome("John Wick 3");
+		gerenciador.flush(); //sincronizar com o banco de dados
 	}
 }

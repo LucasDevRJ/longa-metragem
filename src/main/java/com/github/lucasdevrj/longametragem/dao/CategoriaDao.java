@@ -16,4 +16,8 @@ public class CategoriaDao {
 		this.gerenciador.persist(categoria); //para inserir registros
 	}
 	
+	public void atualizar(Categoria categoria) {
+		this.gerenciador.merge(categoria);
+	}
+	
 }
