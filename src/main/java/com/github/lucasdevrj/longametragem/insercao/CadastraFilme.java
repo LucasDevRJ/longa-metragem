@@ -31,9 +31,11 @@ public class CadastraFilme {
 		categorias.add(categoria2);
 		
 		Ator ator = new Ator("Keanu", "Reeves", "Keanu Charles Reeves é um ator canadense. Nascido em Beirute e criado em Toronto, Reeves começou a atuar em produções teatrais e em filmes de televisão antes de fazer sua estréia no cinema em Youngblood.", new Date("09/11/1964"), 1.86, "americana");
+		Ator ator2 = new Ator("Ruby", "Rose", "Ruby Rose Langenheim é uma modelo, atriz e apresentadora de televisão australiana. Rose foi apresentadora na MTV Austrália, seguida por vários shows de modelagem de alto nível, incluindo Maybelline New York na Austrália.", new Date("20/03/1986"), 1.70, "australiana");
 		
 		List<Ator> atores = new ArrayList<Ator>();
 		atores.add(ator);
+		atores.add(ator2);
 		
 		Elenco elenco = new Elenco(atores);
 		
@@ -58,6 +60,7 @@ public class CadastraFilme {
 		categoriaDao.cadastrar(categoria2);
 		filmeDao.cadastrar(filme); //chamada do método para inserir registro no banco de dados
 		atorDao.cadastrar(ator);
+		atorDao.cadastrar(ator2);
 		elencoDao.cadastrar(elenco);
 		gerenciador.getTransaction().commit(); //commitar/salvar o registro
 		gerenciador.close(); //fechar o Entity Manager

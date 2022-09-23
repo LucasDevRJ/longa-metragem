@@ -1,5 +1,7 @@
 package com.github.lucasdevrj.longametragem.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import com.github.lucasdevrj.longametragem.modelo.Elenco;
@@ -23,5 +25,15 @@ public class ElencoDao {
 	public void remover(Elenco elenco) {
 		elenco = gerenciador.merge(elenco);
 		this.gerenciador.remove(elenco); //Remove a entidade
+	}
+	
+	public Elenco buscarId(int id) {
+		return gerenciador.find(Elenco.class, id); //buscar entidade do banco
+	}
+	
+	//Para buscar todas entidades do banco
+	public List<Elenco> buscarTodas() {
+		String jpql = "SELECT e FROM Elenco e";
+		return gerenciador.createQuery(jpql, Elenco.class).getResultList();
 	}
 }

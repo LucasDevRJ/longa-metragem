@@ -45,4 +45,9 @@ public class Ator {
 	public Elenco getElenco() {
 		return elenco;
 	}
+	
+	@Override
+	public String toString() {
+		return this.nome + " " + this.sobrenome;
+	}
 }

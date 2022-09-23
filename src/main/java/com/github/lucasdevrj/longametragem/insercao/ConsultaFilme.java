@@ -12,7 +12,10 @@ public class ConsultaFilme {
 
 	public static void main(String[] args) {
 		CadastraFilme.cadastrar();
-		
+		consultar();
+	}
+
+	private static void consultar() {
 		EntityManager gerenciador = JPAUtil.getGerenciador();
 		FilmeDao filmeDao = new FilmeDao(gerenciador);
 		

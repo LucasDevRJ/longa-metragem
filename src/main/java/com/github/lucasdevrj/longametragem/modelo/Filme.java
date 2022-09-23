@@ -118,6 +118,6 @@ public class Filme {
 	
 	@Override
 	public String toString() {
-		return "Nome: " + this.nome + "\nFaixa Etária: " + this.faixa + "\nCategorias: " + this.categorias;
+		return "Nome: " + this.nome + "\nFaixa Etária: " + this.faixa + "\nCategorias: " + this.categorias + "\nSinopse: " + this.sinopse + "\nAno: " + this.ano + "\nMinutos: " + this.minutos + "\nElenco: " + this.elenco.getAtores();
 	}
 }

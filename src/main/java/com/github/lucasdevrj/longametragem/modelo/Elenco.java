@@ -1,6 +1,7 @@
 package com.github.lucasdevrj.longametragem.modelo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.github.lucasdevrj.longametragem.dao.AtorDao;
 
 @Entity //Indica que a classe é uma entidade da JPA, ou seja, tem uma tabela no banco a representando
 @Table(name = "elenco") //Nome da tabela do banco
@@ -31,5 +34,13 @@ public class Elenco {
 	
 	public List<Ator> getAtores() {
 		return atores;
+	}
+	
+	@Override
+	public String toString() {
+		for (int i = 0; i <= this.atores.size(); i++) {
+			return this.atores.get(i).getNome();
+		}
+		return null;
 	}
 }
