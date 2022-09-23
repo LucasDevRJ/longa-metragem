@@ -20,6 +20,10 @@ import com.github.lucasdevrj.longametragem.util.JPAUtil;
 public class CadastraFilme {
 
 	public static void main(String[] args) {
+		cadastrar();
+	}
+
+	public static void cadastrar() {
 		Categoria categoria = new Categoria("Ação");
 		Categoria categoria2 = new Categoria("Suspense");
 		List<Categoria> categorias = new ArrayList<Categoria>();

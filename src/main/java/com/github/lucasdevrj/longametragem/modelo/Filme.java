@@ -115,4 +115,9 @@ public class Filme {
 	public void setDirecao(String direcao) {
 		this.direcao = direcao;
 	}
+	
+	@Override
+	public String toString() {
+		return "Nome: " + this.nome + "\nFaixa Etária: " + this.faixa + "\nCategorias: " + this.categorias;
+	}
 }

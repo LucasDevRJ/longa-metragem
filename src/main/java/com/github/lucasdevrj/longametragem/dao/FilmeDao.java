@@ -1,8 +1,9 @@
 package com.github.lucasdevrj.longametragem.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
-import com.github.lucasdevrj.longametragem.modelo.Elenco;
 import com.github.lucasdevrj.longametragem.modelo.Filme;
 //Classe para fazer a ligaçãot  com o Banco de Dados
 public class FilmeDao {
@@ -24,5 +25,15 @@ public class FilmeDao {
 	public void remover(Filme filme) {
 		filme = gerenciador.merge(filme);
 		this.gerenciador.remove(filme); //Remove a entidade
+	}
+	
+	public Filme buscarId(int id) {
+		return gerenciador.find(Filme.class, id); //buscar entidade do banco
+	}
+	
+	//Para buscar todas entidades do banco
+	public List<Filme> buscarTodas() {
+		String jpql = "SELECT f FROM Filme f";
+		return gerenciador.createQuery(jpql, Filme.class).getResultList();
 	}
 }
