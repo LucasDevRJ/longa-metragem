@@ -3,8 +3,6 @@ package com.github.lucasdevrj.longametragem.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-
-import com.github.lucasdevrj.longametragem.modelo.Ator;
 import com.github.lucasdevrj.longametragem.modelo.Filme;
 //Classe para fazer a ligaçãot  com o Banco de Dados
 public class FilmeDao {
@@ -33,7 +31,7 @@ public class FilmeDao {
 	}
 	
 	//Para buscar todas entidades do banco
-	public List<Filme> buscarTodas() {
+	public List<Filme> buscarTodos() {
 		String jpql = "SELECT f FROM Filme f";
 		return gerenciador.createQuery(jpql, Filme.class).getResultList();
 	}
@@ -62,15 +60,5 @@ public class FilmeDao {
 		return gerenciador.createQuery(jpql, Filme.class)
 				.setParameter("nome", nome)
 				.getResultList();
-	}
-	
-	public Long contar(String nome) {
-		String jpql = "SELECT COUNT(f) FROM Filme f "
-				+ "INNER JOIN f.elenco e "
-				+ "INNER JOIN e.atores a "
-				+ "WHERE a.nome = :nome";
-		return (long) gerenciador.createQuery(jpql, Long.class)
-				.setParameter("nome", nome)
-				.getFirstResult();
 	}
 }
