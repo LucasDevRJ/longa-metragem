@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import com.github.lucasdevrj.longametragem.modelo.Ator;
 import com.github.lucasdevrj.longametragem.modelo.Filme;
 //Classe para fazer a ligaçãot  com o Banco de Dados
 public class FilmeDao {
@@ -35,5 +36,41 @@ public class FilmeDao {
 	public List<Filme> buscarTodas() {
 		String jpql = "SELECT f FROM Filme f";
 		return gerenciador.createQuery(jpql, Filme.class).getResultList();
+	}
+	
+	public List<Filme> buscarNome(String nome) {
+		String jpql = "SELECT f FROM Filme f WHERE f.nome = :nome";
+		return gerenciador.createQuery(jpql, Filme.class)
+				.setParameter("nome", nome)
+				.getResultList();
+	}
+	
+	public List<Filme> buscarPorCategoria(String nome) {
+		String jpql = "SELECT f FROM Filme f "
+				+ "INNER JOIN f.categorias c "
+				+ "WHERE c.nome = :nome";
+		return gerenciador.createQuery(jpql, Filme.class)
+				.setParameter("nome", nome)
+				.getResultList();
+	}
+	
+	public List<Filme> buscarPorAtor(String nome) {
+		String jpql = "SELECT f FROM Filme f "
+				+ "INNER JOIN f.elenco e "
+				+ "INNER JOIN e.atores a "
+				+ "WHERE a.nome = :nome";
+		return gerenciador.createQuery(jpql, Filme.class)
+				.setParameter("nome", nome)
+				.getResultList();
+	}
+	
+	public Long contar(String nome) {
+		String jpql = "SELECT COUNT(f) FROM Filme f "
+				+ "INNER JOIN f.elenco e "
+				+ "INNER JOIN e.atores a "
+				+ "WHERE a.nome = :nome";
+		return (long) gerenciador.createQuery(jpql, Long.class)
+				.setParameter("nome", nome)
+				.getFirstResult();
 	}
 }

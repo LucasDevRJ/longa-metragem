@@ -39,7 +39,8 @@ public class CadastraFilme {
 		
 		Elenco elenco = new Elenco(atores);
 		
-		Filme filme = new Filme("John Wick 2", 16, categorias,"Forçado a honrar uma dívida da sua vida passada, John Wick assassina um alvo que não desejava matar, depois é traído pelo mandante do crime.", Year.parse("2017"), 122, elenco, "Chad Stahelski");
+		Filme filme = new Filme("John Wick", 16, categorias,"Forçado a honrar uma dívida da sua vida passada, John Wick assassina um alvo que não desejava matar, depois é traído pelo mandante do crime.", Year.parse("2017"), 122, elenco, "Chad Stahelski");
+		Filme filme2 = new Filme("John Wick 2", 16, categorias,"Forçado a honrar uma dívida da sua vida passada, John Wick assassina um alvo que não desejava matar, depois é traído pelo mandante do crime.", Year.parse("2017"), 122, elenco, "Chad Stahelski");
 		
 		//System.out.println("Filme: " + ator.getElenco().getFilme());
 		
@@ -56,12 +57,15 @@ public class CadastraFilme {
 		ElencoDao elencoDao = new ElencoDao(gerenciador);
 		
 		gerenciador.getTransaction().begin(); //iniciar a transação
+		
 		categoriaDao.cadastrar(categoria);
 		categoriaDao.cadastrar(categoria2);
 		filmeDao.cadastrar(filme); //chamada do método para inserir registro no banco de dados
+		filmeDao.cadastrar(filme2);
 		atorDao.cadastrar(ator);
 		atorDao.cadastrar(ator2);
 		elencoDao.cadastrar(elenco);
+		
 		gerenciador.getTransaction().commit(); //commitar/salvar o registro
 		gerenciador.close(); //fechar o Entity Manager
 	}

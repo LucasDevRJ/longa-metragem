@@ -42,6 +42,10 @@ public class Ator {
 		return nome;
 	}
 	
+	public String getSobrenome() {
+		return sobrenome;
+	}
+	
 	public Elenco getElenco() {
 		return elenco;
 	}
